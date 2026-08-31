@@ -1,0 +1,67 @@
+{% macro fila_libro(libro) %}
+
+<tbody id="fila-libro-{{ libro.libro_id }}">
+
+<tr>
+
+    <td>
+        {{ libro.libro_id }}
+    </td>
+
+    <td>
+        {{ libro.titulo }}
+    </td>
+
+    <td>
+        {{ libro.fecha_publicacion }}
+    </td>
+
+    <td class="text-end">
+
+        <button
+            class="btn btn-sm btn-outline-secondary"
+
+            hx-get="/libros/{{ libro.libro_id }}/editar"
+
+            hx-target="#fila-libro-{{ libro.libro_id }}"
+
+            hx-swap="outerHTML"
+        >
+            Editar
+        </button>
+
+
+        <button
+            class="btn btn-sm btn-outline-info"
+
+            hx-get="/libros/{{ libro.libro_id }}/autores"
+
+            hx-target="#fila-libro-{{ libro.libro_id }}"
+
+            hx-swap="outerHTML"
+        >
+            Ver autores
+        </button>
+
+
+        <button
+            class="btn btn-sm btn-outline-danger"
+
+            hx-delete="/libros/{{ libro.libro_id }}"
+
+            hx-target="#tabla-libros"
+
+            hx-swap="outerHTML"
+
+            hx-confirm="¿Borrar este libro?"
+        >
+            Borrar
+        </button>
+
+    </td>
+
+</tr>
+
+</tbody>
+
+{% endmacro %}

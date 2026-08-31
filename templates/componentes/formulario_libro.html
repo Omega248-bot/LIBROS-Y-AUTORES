@@ -1,0 +1,89 @@
+{% macro formulario_crear_libro() %}
+
+<div class="card mb-4">
+
+    <div class="card-body">
+
+        <h5 class="card-title">
+            Crear libro
+        </h5>
+
+
+        <form
+            class="row g-3"
+
+            hx-post="/libros"
+
+            hx-target="#tabla-libros"
+
+            hx-swap="outerHTML"
+        >
+
+            <div class="col-md-6">
+
+                <label
+                    for="titulo"
+                    class="form-label"
+                >
+                    Título
+                </label>
+
+
+                <input
+                    type="text"
+                    class="form-control"
+
+                    id="titulo"
+
+                    name="titulo"
+
+                    placeholder="Título del libro"
+
+                    required
+                >
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <label
+                    for="fecha_publicacion"
+                    class="form-label"
+                >
+                    Año de publicación
+                </label>
+
+
+                <input
+                    type="number"
+                    class="form-control"
+
+                    id="fecha_publicacion"
+
+                    name="fecha_publicacion"
+
+                    placeholder="Año"
+                >
+
+            </div>
+
+
+            <div class="col-md-2 d-flex align-items-end">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary w-100"
+                >
+                    Crear
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endmacro %}
