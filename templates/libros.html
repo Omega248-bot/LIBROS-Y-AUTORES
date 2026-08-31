@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% from "componentes/formulario_libro.html" import formulario_crear_libro %}
+{% from "componentes/tabla_libros.html" import tabla_libros %}
+
+
+{% block title %}Libros{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Libros
+</h1>
+
+
+{{ formulario_crear_libro() }}
+
+
+{{ tabla_libros(libros) }}
+
+
+{% endblock %}
