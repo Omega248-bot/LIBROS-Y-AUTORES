@@ -1,0 +1,67 @@
+{% macro fila_editar_libro(libro) %}
+
+<tr id="fila-libro-{{ libro.libro_id }}">
+
+    <td>
+        {{ libro.libro_id }}
+    </td>
+
+
+    <td>
+
+        <input
+            type="text"
+            class="form-control form-control-sm"
+            name="titulo"
+            value="{{ libro.titulo }}"
+        >
+
+    </td>
+
+
+    <td>
+
+        <input
+            type="number"
+            class="form-control form-control-sm"
+            name="fecha_publicacion"
+            value="{{ libro.fecha_publicacion or '' }}"
+        >
+
+    </td>
+
+
+    <td class="text-end">
+
+        <button
+            class="btn btn-sm btn-primary"
+
+            hx-put="/libros/{{ libro.libro_id }}"
+
+            hx-include="closest tr"
+
+            hx-target="#fila-libro-{{ libro.libro_id }}"
+
+            hx-swap="outerHTML"
+        >
+            Guardar
+        </button>
+
+
+        <button
+            class="btn btn-sm btn-outline-secondary"
+
+            hx-get="/libros/{{ libro.libro_id }}/cancelar"
+
+            hx-target="#fila-libro-{{ libro.libro_id }}"
+
+            hx-swap="outerHTML"
+        >
+            Cancelar
+        </button>
+
+    </td>
+
+</tr>
+
+{% endmacro %}

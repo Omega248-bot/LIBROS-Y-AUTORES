@@ -1,0 +1,59 @@
+{% from "componentes/fila_libro.html" import fila_libro %}
+
+
+{% macro tabla_libros(libros) %}
+
+<div
+    class="card"
+    id="tabla-libros"
+>
+
+    <div class="card-body">
+
+        <h5 class="card-title">
+            Lista de libros
+        </h5>
+
+
+        <table class="table table-striped align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>
+                        Título
+                    </th>
+
+                    <th>
+                        Año de publicación
+                    </th>
+
+                    <th class="text-end">
+                        Acciones
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for libro in libros %}
+
+                    {{ fila_libro(libro) }}
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endmacro %}
